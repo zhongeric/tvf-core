@@ -1,0 +1,18 @@
+{
+  "proposal": "1",
+  "id": "0000-template",
+  "base": {
+    "id": "core",
+    "version": "1.0.0",
+    "hash": "0xee0f45612ab4ecdbee689b7a0f5a5e19e7d89505bceb30b58cc24854aa925edd"
+  },
+  "next": {
+    "id": "core",
+    "version": "1.0.1"
+  },
+  "checks": ["trading.sell_tax_gt"],
+  "summary": "One line saying what changes.",
+  "rationale": "Why the change is beneficial under every review criterion in core@1.0.0 review.definitions: accuracy, regression, gaming, schema, scope and evidence.",
+  "proposer": "your-github-login",
+  "source": "external"
+}

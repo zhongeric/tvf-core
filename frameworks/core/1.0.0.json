@@ -1,0 +1,764 @@
+{
+  "tvf": "1",
+  "id": "core",
+  "version": "1.0.0",
+  "chains": [
+    1,
+    4663
+  ],
+  "subject": {
+    "token": "address",
+    "pool": "PoolRef"
+  },
+  "checks": [
+    {
+      "id": "code.unverified",
+      "category": "code",
+      "fact": "The source code of {token} on {chain} is not verified, or {token} is a proxy whose current implementation's source code is not verified (see verified, proxy).",
+      "definitions": {
+        "verified": "Verified means the explorer shows an exact or partial source match: etherscan.io on Ethereum mainnet, robinhoodchain.blockscout.com on Robinhood Chain, or sourcify.dev on either chain.",
+        "proxy": "A proxy is a contract whose EIP-1967 implementation slot (0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc) or EIP-1967 beacon slot (0xa3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d50) is non-zero, or whose runtime code is an EIP-1167 minimal proxy. Its current implementation is the address that the slot, the beacon or the EIP-1167 code points to."
+      },
+      "sources": [
+        "https://etherscan.io/",
+        "https://robinhoodchain.blockscout.com/",
+        "https://sourcify.dev/",
+        "https://repo.sourcify.dev/"
+      ],
+      "riskIf": true,
+      "severity": "high",
+      "window": {
+        "hours": 24
+      }
+    },
+    {
+      "id": "code.proxy",
+      "category": "code",
+      "fact": "{token} on {chain} is a proxy (see proxy).",
+      "definitions": {
+        "proxy": "A proxy is a contract whose EIP-1967 implementation slot (0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc) or EIP-1967 beacon slot (0xa3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d50) is non-zero, or whose runtime code is an EIP-1167 minimal proxy. Its current implementation is the address that the slot, the beacon or the EIP-1167 code points to."
+      },
+      "sources": [
+        "https://etherscan.io/",
+        "https://robinhoodchain.blockscout.com/",
+        "https://sourcify.dev/",
+        "https://repo.sourcify.dev/"
+      ],
+      "riskIf": true,
+      "severity": "medium",
+      "window": {
+        "hours": 24
+      }
+    },
+    {
+      "id": "code.proxy_unverified_impl",
+      "category": "code",
+      "fact": "{token} on {chain} is a proxy (see proxy) and the source code of its current implementation is not verified (see verified).",
+      "definitions": {
+        "verified": "Verified means the explorer shows an exact or partial source match: etherscan.io on Ethereum mainnet, robinhoodchain.blockscout.com on Robinhood Chain, or sourcify.dev on either chain.",
+        "proxy": "A proxy is a contract whose EIP-1967 implementation slot (0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc) or EIP-1967 beacon slot (0xa3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d50) is non-zero, or whose runtime code is an EIP-1167 minimal proxy. Its current implementation is the address that the slot, the beacon or the EIP-1167 code points to."
+      },
+      "sources": [
+        "https://etherscan.io/",
+        "https://robinhoodchain.blockscout.com/",
+        "https://sourcify.dev/",
+        "https://repo.sourcify.dev/"
+      ],
+      "riskIf": true,
+      "severity": "critical",
+      "window": {
+        "hours": 24
+      }
+    },
+    {
+      "id": "code.selfdestruct",
+      "category": "code",
+      "fact": "The code of {token} on {chain}, or of its current implementation if it is a proxy, has a reachable SELFDESTRUCT, or a reachable DELEGATECALL whose target a caller or a role can choose (see reachable, role).",
+      "definitions": {
+        "reachable": "Reachable means some external or public function, possibly behind an access check, can execute the opcode in the token's own context. A proxy forwarding calls to its current implementation does not count.",
+        "proxy": "A proxy is a contract whose EIP-1967 implementation slot (0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc) or EIP-1967 beacon slot (0xa3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d50) is non-zero, or whose runtime code is an EIP-1167 minimal proxy. Its current implementation is the address that the slot, the beacon or the EIP-1167 code points to.",
+        "role": "A role is any address, or holder of an access-control role, that can call a restricted function of the token or its current implementation at the window closing block. Owners are roles. A role with no holder, or held only by a renounced address, does not count."
+      },
+      "sources": [
+        "https://etherscan.io/",
+        "https://robinhoodchain.blockscout.com/",
+        "https://sourcify.dev/",
+        "https://repo.sourcify.dev/"
+      ],
+      "riskIf": true,
+      "severity": "high",
+      "window": {
+        "hours": 24
+      }
+    },
+    {
+      "id": "control.owner_active",
+      "category": "control",
+      "fact": "{token} on {chain} has an owner that is not renounced (see owner).",
+      "definitions": {
+        "owner": "The owner is the address returned at the window closing block by the first of owner() or getOwner() that the token or its implementation implements, else any holder of DEFAULT_ADMIN_ROLE (0x00). A proxy's EIP-1967 admin (slot 0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103) is also an owner. An owner of 0x0 or 0x000000000000000000000000000000000000dEaD is renounced."
+      },
+      "sources": [
+        "https://etherscan.io/",
+        "https://robinhoodchain.blockscout.com/"
+      ],
+      "riskIf": true,
+      "severity": "low",
+      "window": {
+        "hours": 24
+      }
+    },
+    {
+      "id": "control.admin_is_eoa",
+      "category": "control",
+      "fact": "An owner of {token} on {chain} that is not renounced is an EOA, or is a contract that can act with a timelock delay shorter than {param.delay}; no timelock counts as zero (see owner).",
+      "params": {
+        "delay": {
+          "type": "days",
+          "default": 1,
+          "min": 0,
+          "max": 30
+        }
+      },
+      "definitions": {
+        "owner": "The owner is the address returned at the window closing block by the first of owner() or getOwner() that the token or its implementation implements, else any holder of DEFAULT_ADMIN_ROLE (0x00). A proxy's EIP-1967 admin (slot 0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103) is also an owner. An owner of 0x0 or 0x000000000000000000000000000000000000dEaD is renounced."
+      },
+      "sources": [
+        "https://etherscan.io/",
+        "https://robinhoodchain.blockscout.com/"
+      ],
+      "riskIf": true,
+      "severity": "high",
+      "window": {
+        "hours": 24
+      }
+    },
+    {
+      "id": "control.hidden_owner",
+      "category": "control",
+      "fact": "Some address that is not an owner of {token} on {chain} holds a privileged role (see owner, privileged).",
+      "definitions": {
+        "owner": "The owner is the address returned at the window closing block by the first of owner() or getOwner() that the token or its implementation implements, else any holder of DEFAULT_ADMIN_ROLE (0x00). A proxy's EIP-1967 admin (slot 0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103) is also an owner. An owner of 0x0 or 0x000000000000000000000000000000000000dEaD is renounced.",
+        "role": "A role is any address, or holder of an access-control role, that can call a restricted function of the token or its current implementation at the window closing block. Owners are roles. A role with no holder, or held only by a renounced address, does not count.",
+        "privileged": "A privileged role is a role that can mint, pause transfers, block addresses, set taxes or change holder balances of the token."
+      },
+      "sources": [
+        "https://etherscan.io/",
+        "https://robinhoodchain.blockscout.com/"
+      ],
+      "riskIf": true,
+      "severity": "high",
+      "window": {
+        "hours": 24
+      }
+    },
+    {
+      "id": "control.mintable",
+      "category": "control",
+      "fact": "Some address can increase the totalSupply of {token} on {chain} by calling a function of its current code.",
+      "definitions": {},
+      "sources": [
+        "https://etherscan.io/",
+        "https://robinhoodchain.blockscout.com/",
+        "https://sourcify.dev/",
+        "https://repo.sourcify.dev/"
+      ],
+      "riskIf": true,
+      "severity": "high",
+      "window": {
+        "hours": 24
+      }
+    },
+    {
+      "id": "control.change_balance",
+      "category": "control",
+      "fact": "A role can reduce, burn or overwrite the balance of an arbitrary holder of {token} on {chain} without that holder's approval (see role).",
+      "definitions": {
+        "role": "A role is any address, or holder of an access-control role, that can call a restricted function of the token or its current implementation at the window closing block. Owners are roles. A role with no holder, or held only by a renounced address, does not count."
+      },
+      "sources": [
+        "https://etherscan.io/",
+        "https://robinhoodchain.blockscout.com/",
+        "https://sourcify.dev/",
+        "https://repo.sourcify.dev/"
+      ],
+      "riskIf": true,
+      "severity": "critical",
+      "window": {
+        "hours": 24
+      }
+    },
+    {
+      "id": "control.pausable",
+      "category": "control",
+      "fact": "A role can pause or block all transfers of {token} on {chain} (see role).",
+      "definitions": {
+        "role": "A role is any address, or holder of an access-control role, that can call a restricted function of the token or its current implementation at the window closing block. Owners are roles. A role with no holder, or held only by a renounced address, does not count."
+      },
+      "sources": [
+        "https://etherscan.io/",
+        "https://robinhoodchain.blockscout.com/",
+        "https://sourcify.dev/",
+        "https://repo.sourcify.dev/"
+      ],
+      "riskIf": true,
+      "severity": "medium",
+      "window": {
+        "hours": 24
+      }
+    },
+    {
+      "id": "control.blacklist",
+      "category": "control",
+      "fact": "A role can stop chosen addresses from sending or receiving {token} on {chain} (see role).",
+      "definitions": {
+        "role": "A role is any address, or holder of an access-control role, that can call a restricted function of the token or its current implementation at the window closing block. Owners are roles. A role with no holder, or held only by a renounced address, does not count."
+      },
+      "sources": [
+        "https://etherscan.io/",
+        "https://robinhoodchain.blockscout.com/",
+        "https://sourcify.dev/",
+        "https://repo.sourcify.dev/"
+      ],
+      "riskIf": true,
+      "severity": "medium",
+      "window": {
+        "hours": 24
+      }
+    },
+    {
+      "id": "control.reclaim_ownership",
+      "category": "control",
+      "fact": "Every owner of {token} on {chain} is renounced, and some address can still become an owner or obtain a privileged role (see owner, privileged).",
+      "definitions": {
+        "owner": "The owner is the address returned at the window closing block by the first of owner() or getOwner() that the token or its implementation implements, else any holder of DEFAULT_ADMIN_ROLE (0x00). A proxy's EIP-1967 admin (slot 0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103) is also an owner. An owner of 0x0 or 0x000000000000000000000000000000000000dEaD is renounced.",
+        "role": "A role is any address, or holder of an access-control role, that can call a restricted function of the token or its current implementation at the window closing block. Owners are roles. A role with no holder, or held only by a renounced address, does not count.",
+        "privileged": "A privileged role is a role that can mint, pause transfers, block addresses, set taxes or change holder balances of the token."
+      },
+      "sources": [
+        "https://etherscan.io/",
+        "https://robinhoodchain.blockscout.com/",
+        "https://sourcify.dev/",
+        "https://repo.sourcify.dev/"
+      ],
+      "riskIf": true,
+      "severity": "high",
+      "window": {
+        "hours": 24
+      }
+    },
+    {
+      "id": "trading.sell_reverts",
+      "category": "trading",
+      "fact": "In the simulation (see sim), selling 100% of the {token} that a fresh EOA just bought via {pool} reverts. False if the buy reverts or there is no such pool.",
+      "definitions": {
+        "sim": "The simulation forks the chain at the window closing block. A fresh EOA funded with ETH buys the token with 0.1 ETH worth of the pool's quote asset via the pool named in the fact, then sells 100% of the tokens it received back via the same pool, with no slippage limit. For a transfer, it instead sends 100% of the bought tokens to a second fresh EOA."
+      },
+      "sources": [
+        "https://etherscan.io/",
+        "https://robinhoodchain.blockscout.com/",
+        "https://honeypot.is/",
+        "https://api.honeypot.is/",
+        "https://gopluslabs.io/",
+        "https://api.gopluslabs.io/"
+      ],
+      "riskIf": true,
+      "severity": "critical",
+      "window": {
+        "hours": 24
+      }
+    },
+    {
+      "id": "trading.buy_tax_gt",
+      "category": "trading",
+      "fact": "In the simulation (see sim), the buy tax (see tax) of {token} via {pool} is greater than {param.bps}. False if the buy reverts or there is no such pool.",
+      "params": {
+        "bps": {
+          "type": "bps",
+          "default": 1000,
+          "min": 0,
+          "max": 10000
+        }
+      },
+      "definitions": {
+        "sim": "The simulation forks the chain at the window closing block. A fresh EOA funded with ETH buys the token with 0.1 ETH worth of the pool's quote asset via the pool named in the fact, then sells 100% of the tokens it received back via the same pool, with no slippage limit. For a transfer, it instead sends 100% of the bought tokens to a second fresh EOA.",
+        "tax": "Tax is 1 - received/expected, where expected is what the swap or transfer would deliver if the token charged no fee of its own. Pool fees and price impact are part of expected."
+      },
+      "sources": [
+        "https://etherscan.io/",
+        "https://robinhoodchain.blockscout.com/",
+        "https://honeypot.is/",
+        "https://api.honeypot.is/",
+        "https://gopluslabs.io/",
+        "https://api.gopluslabs.io/"
+      ],
+      "riskIf": true,
+      "severity": "high",
+      "window": {
+        "hours": 24
+      }
+    },
+    {
+      "id": "trading.sell_tax_gt",
+      "category": "trading",
+      "fact": "In the simulation (see sim), the sell tax (see tax) of {token} via {pool} is greater than {param.bps}. False if the buy or the sell reverts or there is no such pool.",
+      "params": {
+        "bps": {
+          "type": "bps",
+          "default": 1000,
+          "min": 0,
+          "max": 10000
+        }
+      },
+      "definitions": {
+        "sim": "The simulation forks the chain at the window closing block. A fresh EOA funded with ETH buys the token with 0.1 ETH worth of the pool's quote asset via the pool named in the fact, then sells 100% of the tokens it received back via the same pool, with no slippage limit. For a transfer, it instead sends 100% of the bought tokens to a second fresh EOA.",
+        "tax": "Tax is 1 - received/expected, where expected is what the swap or transfer would deliver if the token charged no fee of its own. Pool fees and price impact are part of expected."
+      },
+      "sources": [
+        "https://etherscan.io/",
+        "https://robinhoodchain.blockscout.com/",
+        "https://honeypot.is/",
+        "https://api.honeypot.is/",
+        "https://gopluslabs.io/",
+        "https://api.gopluslabs.io/"
+      ],
+      "riskIf": true,
+      "severity": "high",
+      "window": {
+        "hours": 24
+      }
+    },
+    {
+      "id": "trading.transfer_tax_gt",
+      "category": "trading",
+      "fact": "In the simulation (see sim), a wallet-to-wallet transfer of {token} bought via {pool} loses more than {param.bps} to the token's own fees (see tax). False if the buy reverts or there is no such pool.",
+      "params": {
+        "bps": {
+          "type": "bps",
+          "default": 500,
+          "min": 0,
+          "max": 10000
+        }
+      },
+      "definitions": {
+        "sim": "The simulation forks the chain at the window closing block. A fresh EOA funded with ETH buys the token with 0.1 ETH worth of the pool's quote asset via the pool named in the fact, then sells 100% of the tokens it received back via the same pool, with no slippage limit. For a transfer, it instead sends 100% of the bought tokens to a second fresh EOA.",
+        "tax": "Tax is 1 - received/expected, where expected is what the swap or transfer would deliver if the token charged no fee of its own. Pool fees and price impact are part of expected."
+      },
+      "sources": [
+        "https://etherscan.io/",
+        "https://robinhoodchain.blockscout.com/",
+        "https://honeypot.is/",
+        "https://api.honeypot.is/",
+        "https://gopluslabs.io/",
+        "https://api.gopluslabs.io/"
+      ],
+      "riskIf": true,
+      "severity": "medium",
+      "window": {
+        "hours": 24
+      }
+    },
+    {
+      "id": "trading.tax_modifiable",
+      "category": "trading",
+      "fact": "A role can change the buy, sell or transfer tax of {token} on {chain} (see role).",
+      "definitions": {
+        "role": "A role is any address, or holder of an access-control role, that can call a restricted function of the token or its current implementation at the window closing block. Owners are roles. A role with no holder, or held only by a renounced address, does not count."
+      },
+      "sources": [
+        "https://etherscan.io/",
+        "https://robinhoodchain.blockscout.com/",
+        "https://sourcify.dev/",
+        "https://repo.sourcify.dev/",
+        "https://honeypot.is/",
+        "https://api.honeypot.is/",
+        "https://gopluslabs.io/",
+        "https://api.gopluslabs.io/"
+      ],
+      "riskIf": true,
+      "severity": "high",
+      "window": {
+        "hours": 24
+      }
+    },
+    {
+      "id": "trading.per_address_tax",
+      "category": "trading",
+      "fact": "A role can set, for specific addresses of {token} on {chain}, a tax rate other than the rate other holders pay; exempting addresses from tax does not count (see role).",
+      "definitions": {
+        "role": "A role is any address, or holder of an access-control role, that can call a restricted function of the token or its current implementation at the window closing block. Owners are roles. A role with no holder, or held only by a renounced address, does not count."
+      },
+      "sources": [
+        "https://etherscan.io/",
+        "https://robinhoodchain.blockscout.com/",
+        "https://sourcify.dev/",
+        "https://repo.sourcify.dev/",
+        "https://honeypot.is/",
+        "https://api.honeypot.is/",
+        "https://gopluslabs.io/",
+        "https://api.gopluslabs.io/"
+      ],
+      "riskIf": true,
+      "severity": "high",
+      "window": {
+        "hours": 24
+      }
+    },
+    {
+      "id": "trading.limits",
+      "category": "trading",
+      "fact": "{token} on {chain} enforces, for ordinary holders, a maximum transaction amount or a maximum wallet balance below {param.bps} of totalSupply.",
+      "params": {
+        "bps": {
+          "type": "bps",
+          "default": 100,
+          "min": 0,
+          "max": 10000
+        }
+      },
+      "definitions": {},
+      "sources": [
+        "https://etherscan.io/",
+        "https://robinhoodchain.blockscout.com/",
+        "https://sourcify.dev/",
+        "https://repo.sourcify.dev/",
+        "https://honeypot.is/",
+        "https://api.honeypot.is/",
+        "https://gopluslabs.io/",
+        "https://api.gopluslabs.io/"
+      ],
+      "riskIf": true,
+      "severity": "low",
+      "window": {
+        "hours": 24
+      }
+    },
+    {
+      "id": "trading.cooldown",
+      "category": "trading",
+      "fact": "{token} on {chain} enforces a minimum time or block delay between trades or transfers by the same address.",
+      "definitions": {},
+      "sources": [
+        "https://etherscan.io/",
+        "https://robinhoodchain.blockscout.com/",
+        "https://sourcify.dev/",
+        "https://repo.sourcify.dev/",
+        "https://honeypot.is/",
+        "https://api.honeypot.is/",
+        "https://gopluslabs.io/",
+        "https://api.gopluslabs.io/"
+      ],
+      "riskIf": true,
+      "severity": "low",
+      "window": {
+        "hours": 24
+      }
+    },
+    {
+      "id": "supply.noncirc_gt",
+      "category": "supply",
+      "fact": "The deployer, the owners and the team addresses of {token} on {chain} together hold more than {param.bps} of totalSupply (see deployer, owner, labels, holders).",
+      "params": {
+        "bps": {
+          "type": "bps",
+          "default": 5000,
+          "min": 0,
+          "max": 10000
+        }
+      },
+      "definitions": {
+        "deployer": "The deployer is the address that sent the transaction creating the token contract (for a proxy, the proxy). For a token created by a factory, it is the sender of the factory call.",
+        "owner": "The owner is the address returned at the window closing block by the first of owner() or getOwner() that the token or its implementation implements, else any holder of DEFAULT_ADMIN_ROLE (0x00). A proxy's EIP-1967 admin (slot 0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103) is also an owner. An owner of 0x0 or 0x000000000000000000000000000000000000dEaD is renounced.",
+        "labels": "Team addresses are those labelled team, vesting, treasury, foundation or founder on etherscan.io or robinhoodchain.blockscout.com, plus vesting contracts whose beneficiary is the deployer or an owner.",
+        "holders": "Holdings are balanceOf / totalSupply at the window closing block. Excluded holders: Uniswap pools and the v4 PoolManager, LP lockers (UNCX, Team.Finance, PinkLock), 0x0000000000000000000000000000000000000000 and 0x000000000000000000000000000000000000dEaD."
+      },
+      "sources": [
+        "https://etherscan.io/",
+        "https://robinhoodchain.blockscout.com/"
+      ],
+      "riskIf": true,
+      "severity": "medium",
+      "window": {
+        "hours": 24
+      }
+    },
+    {
+      "id": "supply.top10_gt",
+      "category": "supply",
+      "fact": "The 10 largest holders of {token} on {chain} that are not excluded (see holders) together hold more than {param.bps} of totalSupply.",
+      "params": {
+        "bps": {
+          "type": "bps",
+          "default": 3000,
+          "min": 0,
+          "max": 10000
+        }
+      },
+      "definitions": {
+        "holders": "Holdings are balanceOf / totalSupply at the window closing block. Excluded holders: Uniswap pools and the v4 PoolManager, LP lockers (UNCX, Team.Finance, PinkLock), 0x0000000000000000000000000000000000000000 and 0x000000000000000000000000000000000000dEaD."
+      },
+      "sources": [
+        "https://etherscan.io/",
+        "https://robinhoodchain.blockscout.com/"
+      ],
+      "riskIf": true,
+      "severity": "high",
+      "window": {
+        "hours": 24
+      }
+    },
+    {
+      "id": "supply.owner_gt",
+      "category": "supply",
+      "fact": "The deployer or an owner of {token} on {chain}, on its own, holds more than {param.bps} of totalSupply (see deployer, owner, holders).",
+      "params": {
+        "bps": {
+          "type": "bps",
+          "default": 500,
+          "min": 0,
+          "max": 10000
+        }
+      },
+      "definitions": {
+        "deployer": "The deployer is the address that sent the transaction creating the token contract (for a proxy, the proxy). For a token created by a factory, it is the sender of the factory call.",
+        "owner": "The owner is the address returned at the window closing block by the first of owner() or getOwner() that the token or its implementation implements, else any holder of DEFAULT_ADMIN_ROLE (0x00). A proxy's EIP-1967 admin (slot 0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103) is also an owner. An owner of 0x0 or 0x000000000000000000000000000000000000dEaD is renounced.",
+        "holders": "Holdings are balanceOf / totalSupply at the window closing block. Excluded holders: Uniswap pools and the v4 PoolManager, LP lockers (UNCX, Team.Finance, PinkLock), 0x0000000000000000000000000000000000000000 and 0x000000000000000000000000000000000000dEaD."
+      },
+      "sources": [
+        "https://etherscan.io/",
+        "https://robinhoodchain.blockscout.com/"
+      ],
+      "riskIf": true,
+      "severity": "high",
+      "window": {
+        "hours": 24
+      }
+    },
+    {
+      "id": "liquidity.no_pool",
+      "category": "liquidity",
+      "fact": "{chain} has no Uniswap v2, v3 or v4 pool pairing {token} with WETH, USDC or USDT whose TVL (see tvl) is at least {param.usd}.",
+      "params": {
+        "usd": {
+          "type": "usd",
+          "default": 10000,
+          "min": 0,
+          "max": 100000000
+        }
+      },
+      "definitions": {
+        "tvl": "TVL is the USD value at the window closing block of both sides of a pool's liquidity (for v3 and v4, all positions), pricing WETH at its highest-TVL Uniswap WETH/USDC pool price and USDC and USDT at 1 USD."
+      },
+      "sources": [
+        "https://etherscan.io/",
+        "https://robinhoodchain.blockscout.com/",
+        "https://app.uniswap.org/"
+      ],
+      "riskIf": true,
+      "severity": "high",
+      "window": {
+        "hours": 24
+      }
+    },
+    {
+      "id": "liquidity.lp_locked_lt",
+      "category": "liquidity",
+      "fact": "Less than {param.bps} of the liquidity of {pool} is burned, or locked until at least {param.days} after the window closing block (see lockers). False if there is no such pool.",
+      "params": {
+        "bps": {
+          "type": "bps",
+          "default": 5000,
+          "min": 0,
+          "max": 10000
+        },
+        "days": {
+          "type": "days",
+          "default": 30,
+          "min": 1,
+          "max": 3650
+        }
+      },
+      "definitions": {
+        "lockers": "LP is burned when held by 0x0 or 0x000000000000000000000000000000000000dEaD, and locked when held by an UNCX, Team.Finance or PinkLock locker until its recorded unlock time. For v3 and v4, the position NFTs count. Shares are of the pool's total liquidity at the window closing block."
+      },
+      "sources": [
+        "https://etherscan.io/",
+        "https://robinhoodchain.blockscout.com/",
+        "https://app.uniswap.org/",
+        "https://uncx.network/",
+        "https://www.team.finance/",
+        "https://www.pinksale.finance/"
+      ],
+      "riskIf": true,
+      "severity": "high",
+      "window": {
+        "hours": 24
+      }
+    },
+    {
+      "id": "liquidity.unlock_soon",
+      "category": "liquidity",
+      "fact": "A single lock holding at least 10% of the liquidity of {pool} unlocks within {param.days} after the window closing block (see lockers). False if there is no such pool.",
+      "params": {
+        "days": {
+          "type": "days",
+          "default": 7,
+          "min": 1,
+          "max": 365
+        }
+      },
+      "definitions": {
+        "lockers": "LP is burned when held by 0x0 or 0x000000000000000000000000000000000000dEaD, and locked when held by an UNCX, Team.Finance or PinkLock locker until its recorded unlock time. For v3 and v4, the position NFTs count. Shares are of the pool's total liquidity at the window closing block."
+      },
+      "sources": [
+        "https://etherscan.io/",
+        "https://robinhoodchain.blockscout.com/",
+        "https://app.uniswap.org/",
+        "https://uncx.network/",
+        "https://www.team.finance/",
+        "https://www.pinksale.finance/"
+      ],
+      "riskIf": true,
+      "severity": "high",
+      "window": {
+        "hours": 24
+      }
+    },
+    {
+      "id": "liquidity.v4_hook_risky",
+      "category": "liquidity",
+      "fact": "{pool} is a Uniswap v4 pool whose hook can return swap deltas or whose fee is dynamic, and an EOA controls that hook or fee (see hook). False if {pool} is not a v4 pool or has no hook.",
+      "definitions": {
+        "hook": "A v4 hook's permissions are the low 14 bits of its address. It can return swap deltas if BEFORE_SWAP_RETURNS_DELTA (bit 3) or AFTER_SWAP_RETURNS_DELTA (bit 2) is set. A pool's fee is dynamic if its PoolKey fee is 0x800000. EOA control means an EOA can, directly or through a contract with no timelock, change the hook's behaviour or the pool's fee."
+      },
+      "sources": [
+        "https://etherscan.io/",
+        "https://robinhoodchain.blockscout.com/",
+        "https://sourcify.dev/",
+        "https://repo.sourcify.dev/",
+        "https://app.uniswap.org/"
+      ],
+      "riskIf": true,
+      "severity": "high",
+      "window": {
+        "hours": 24
+      }
+    },
+    {
+      "id": "identity.impersonation",
+      "category": "identity",
+      "fact": "The name or symbol of {token} matches that of a top-500 asset on {chain} (see top500), and {token} is not that asset's contract address on {chain}.",
+      "definitions": {
+        "top500": "Top-500 assets are the 500 largest by market cap on coingecko.com that have a contract on the chain, with their addresses confirmed by coingecko.com and, where it covers the chain, tokens.uniswap.org. A name or symbol matches when equal after trimming and ignoring case."
+      },
+      "sources": [
+        "https://etherscan.io/",
+        "https://robinhoodchain.blockscout.com/",
+        "https://www.coingecko.com/",
+        "https://api.coingecko.com/",
+        "https://tokens.uniswap.org/"
+      ],
+      "riskIf": true,
+      "severity": "critical",
+      "window": {
+        "hours": 24
+      }
+    },
+    {
+      "id": "identity.unlisted",
+      "category": "identity",
+      "fact": "{token} on {chain} is listed neither on coingecko.com under this contract address nor on the Uniswap default token list at tokens.uniswap.org.",
+      "definitions": {},
+      "sources": [
+        "https://www.coingecko.com/",
+        "https://api.coingecko.com/",
+        "https://tokens.uniswap.org/"
+      ],
+      "riskIf": true,
+      "severity": "info",
+      "window": {
+        "hours": 24
+      }
+    },
+    {
+      "id": "identity.deployer_rug",
+      "category": "identity",
+      "fact": "Within {param.days} before the window closing block, the deployer (see deployer) of {token} deployed another token on {chain} that failed critical checks (see scanners).",
+      "params": {
+        "days": {
+          "type": "days",
+          "default": 180,
+          "min": 1,
+          "max": 3650
+        }
+      },
+      "definitions": {
+        "deployer": "The deployer is the address that sent the transaction creating the token contract (for a proxy, the proxy). For a token created by a factory, it is the sender of the factory call.",
+        "scanners": "Failed critical checks means honeypot.is, gopluslabs.io, tokensniffer.com or de.fi flags the token as a honeypot, as impersonating another asset, or as letting a role change holder balances."
+      },
+      "sources": [
+        "https://etherscan.io/",
+        "https://robinhoodchain.blockscout.com/",
+        "https://honeypot.is/",
+        "https://api.honeypot.is/",
+        "https://gopluslabs.io/",
+        "https://api.gopluslabs.io/",
+        "https://tokensniffer.com/",
+        "https://de.fi/"
+      ],
+      "riskIf": true,
+      "severity": "high",
+      "window": {
+        "hours": 24
+      }
+    }
+  ],
+  "scoring": {
+    "weights": {
+      "critical": 100,
+      "high": 25,
+      "medium": 10,
+      "low": 3,
+      "info": 0
+    },
+    "verdict": {
+      "fail": "anyCriticalRisky",
+      "warn": {
+        "scoreBelow": 70,
+        "orHighUnanswered": true
+      }
+    },
+    "unanswered": "severityMinusOne"
+  },
+  "review": {
+    "action": "oracle.request",
+    "question": "Is proposal {proposalId}, the framework diff with keccak256 {diffHash} from core@{base} to core@{next}, beneficial to the framework under every criterion in the definitions?",
+    "answerType": "bool",
+    "evidence": "panel",
+    "panelSize": 100,
+    "quorum": 85,
+    "window": {
+      "hours": 72
+    },
+    "validForSeconds": 604800,
+    "definitions": {
+      "diff": "The diff is the file at {diffUrl}, a commit URL in github.com/zhongeric/tvf-core. Its keccak256 must equal {diffHash}.",
+      "accuracy": "Accuracy: core@{next} improves or keeps detection on the backtest corpus compared with core@{base}.",
+      "regression": "Regression: no check flips a result that was previously attested and confirmed correct on the backtest set.",
+      "gaming": "Gaming: no wording, threshold or source change makes a known-risky token pass, and no change favours a specific token, deployer or source.",
+      "schema": "Schema: core@{next} validates against tvf-1, every check stays bool, and the semver bump is correct (patch for wording or definitions, minor to add a check or change a default threshold, major to remove a check or change scoring).",
+      "scope": "Scope: the diff does not modify review or scoring.weights.",
+      "evidence": "Evidence: the backtest report at {reportUrl} is reproducible.",
+      "default": "If any criterion is unproven, answer false."
+    },
+    "guards": {
+      "sources": [
+        "https://github.com/zhongeric/tvf-core/",
+        "https://raw.githubusercontent.com/zhongeric/tvf-core/"
+      ],
+      "minSources": 2
+    },
+    "allowAmbiguous": false
+  },
+  "hash": "0xee0f45612ab4ecdbee689b7a0f5a5e19e7d89505bceb30b58cc24854aa925edd"
+}

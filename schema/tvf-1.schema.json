@@ -1,0 +1,174 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/zhongeric/tvf-core/schema/tvf-1.schema.json",
+  "title": "Token Verification Framework, format 1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["tvf", "id", "version", "chains", "subject", "checks", "scoring", "hash"],
+  "properties": {
+    "tvf": { "const": "1" },
+    "id": { "type": "string", "pattern": "^(core|[a-z0-9][a-z0-9-]{0,38}\\.[a-z][a-z0-9_-]{0,47})$" },
+    "version": { "$ref": "#/$defs/semver" },
+    "extends": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^(core|[a-z0-9][a-z0-9-]{0,38}\\.[a-z][a-z0-9_-]{0,47})$" },
+        "version": { "$ref": "#/$defs/semver" }
+      }
+    },
+    "chains": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "enum": [1, 4663] }
+    },
+    "subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["token"],
+      "properties": {
+        "token": { "const": "address" },
+        "pool": { "const": "PoolRef" }
+      }
+    },
+    "checks": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/check" } },
+    "scoring": { "$ref": "#/$defs/scoring" },
+    "review": { "$ref": "#/$defs/review" },
+    "hash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" }
+  },
+  "if": { "properties": { "id": { "const": "core" } } },
+  "then": { "required": ["review"], "properties": { "extends": false } },
+  "else": { "required": ["extends"], "properties": { "review": false } },
+  "$defs": {
+    "semver": { "type": "string", "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$" },
+    "text": { "type": "string", "minLength": 1, "maxLength": 512 },
+    "source": { "type": "string", "pattern": "^https://[^\\s]+$", "maxLength": 512 },
+    "window": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["hours"],
+      "properties": { "hours": { "type": "integer", "minimum": 1, "maximum": 720 } }
+    },
+    "check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "category", "fact", "definitions", "sources", "riskIf", "severity", "window"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z][a-z0-9_.]{0,47}$" },
+        "category": { "enum": ["code", "control", "trading", "supply", "liquidity", "identity"] },
+        "fact": { "$ref": "#/$defs/text" },
+        "params": {
+          "type": "object",
+          "propertyNames": { "pattern": "^[a-z][a-z0-9_]{0,31}$" },
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "default", "min", "max"],
+            "properties": {
+              "type": { "enum": ["bps", "days", "usd", "count"] },
+              "default": { "type": "integer" },
+              "min": { "type": "integer", "minimum": 0 },
+              "max": { "type": "integer" }
+            }
+          }
+        },
+        "definitions": {
+          "type": "object",
+          "maxProperties": 16,
+          "propertyNames": { "pattern": "^(?!bits$|pool$|f[0-9]+$)[a-z][a-zA-Z0-9]{0,31}$" },
+          "additionalProperties": { "$ref": "#/$defs/text" }
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 32,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/source" }
+        },
+        "riskIf": { "type": "boolean" },
+        "severity": { "enum": ["critical", "high", "medium", "low", "info"] },
+        "window": { "$ref": "#/$defs/window" }
+      }
+    },
+    "scoring": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["weights", "verdict", "unanswered"],
+      "properties": {
+        "weights": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["critical", "high", "medium", "low", "info"],
+          "properties": {
+            "critical": { "const": 100 },
+            "high": { "const": 25 },
+            "medium": { "const": 10 },
+            "low": { "const": 3 },
+            "info": { "const": 0 }
+          }
+        },
+        "verdict": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["fail", "warn"],
+          "properties": {
+            "fail": { "const": "anyCriticalRisky" },
+            "warn": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["scoreBelow", "orHighUnanswered"],
+              "properties": {
+                "scoreBelow": { "const": 70 },
+                "orHighUnanswered": { "const": true }
+              }
+            }
+          }
+        },
+        "unanswered": { "const": "severityMinusOne" }
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "action", "question", "answerType", "evidence", "panelSize", "quorum",
+        "window", "validForSeconds", "definitions", "guards", "allowAmbiguous"
+      ],
+      "properties": {
+        "action": { "const": "oracle.request" },
+        "question": { "type": "string", "minLength": 1, "maxLength": 2000 },
+        "answerType": { "const": "bool" },
+        "evidence": { "const": "panel" },
+        "panelSize": { "type": "integer", "minimum": 5, "maximum": 100 },
+        "quorum": { "type": "integer", "minimum": 3, "maximum": 100 },
+        "window": { "$ref": "#/$defs/window" },
+        "validForSeconds": { "type": "integer", "minimum": 60, "maximum": 2592000 },
+        "definitions": {
+          "type": "object",
+          "minProperties": 1,
+          "maxProperties": 64,
+          "propertyNames": { "pattern": "^[a-z][a-zA-Z0-9]{0,31}$" },
+          "additionalProperties": { "$ref": "#/$defs/text" }
+        },
+        "guards": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["sources", "minSources"],
+          "properties": {
+            "sources": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 32,
+              "uniqueItems": true,
+              "items": { "$ref": "#/$defs/source" }
+            },
+            "minSources": { "type": "integer", "minimum": 1, "maximum": 32 }
+          }
+        },
+        "allowAmbiguous": { "const": false }
+      }
+    }
+  }
+}
