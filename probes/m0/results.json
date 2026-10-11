@@ -1,0 +1,1469 @@
+{
+  "api": "https://api.imd.fun",
+  "at": "2026-10-11T15:58:22.770Z",
+  "framework": "core@1.0.0",
+  "hash": "0xee0f45612ab4ecdbee689b7a0f5a5e19e7d89505bceb30b58cc24854aa925edd",
+  "gatePassed": true,
+  "rows": [
+    {
+      "token": "USDC",
+      "bundle": 0,
+      "checks": [
+        "code.unverified",
+        "code.proxy",
+        "code.proxy_unverified_impl",
+        "code.selfdestruct",
+        "control.owner_active",
+        "control.admin_is_eoa"
+      ],
+      "wording": "definitions",
+      "questionChars": 264,
+      "endpoint": "check",
+      "status": 200,
+      "blockers": [
+        {
+          "code": "not_answerable",
+          "detail": "No one can answer this from public sources today: it may ask about the future, a matter of opinion, or something that is not public."
+        }
+      ],
+      "suggestions": [
+        {
+          "code": "wording",
+          "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+        },
+        {
+          "code": "evidence",
+          "detail": "This reads as answered from blockchain data; you chose public sources."
+        }
+      ],
+      "proposed": {
+        "answerType": {
+          "value": "uint256",
+          "confidence": 0.47
+        },
+        "evidence": {
+          "value": "chain",
+          "confidence": 0.92
+        },
+        "chainId": {
+          "value": 1,
+          "confidence": 1
+        },
+        "toleranceBps": {
+          "value": 0,
+          "confidence": 0.89
+        },
+        "head": {
+          "value": 1,
+          "confidence": 1
+        }
+      }
+    },
+    {
+      "token": "USDC",
+      "bundle": 0,
+      "checks": [
+        "code.unverified",
+        "code.proxy",
+        "code.proxy_unverified_impl",
+        "code.selfdestruct",
+        "control.owner_active",
+        "control.admin_is_eoa"
+      ],
+      "wording": "definitions",
+      "questionChars": 264,
+      "endpoint": "quote",
+      "status": 201,
+      "problems": [],
+      "orderId": "8c46c60a-4415-41cb-8de7-51e0d182dba8",
+      "orderStatus": "quoted",
+      "amount": "500000000000000000",
+      "resultGuaranteed": false,
+      "inputHash": "8d06ef5eb1bc7bd5db9c6455611d2b2c0195e34babe4b0777bdda9dd483f0dc1"
+    },
+    {
+      "token": "USDC",
+      "bundle": 0,
+      "checks": [
+        "code.unverified",
+        "code.proxy",
+        "code.proxy_unverified_impl",
+        "code.selfdestruct",
+        "control.owner_active",
+        "control.admin_is_eoa"
+      ],
+      "wording": "inline",
+      "questionChars": 1341,
+      "endpoint": "check",
+      "status": 200,
+      "blockers": [],
+      "suggestions": [],
+      "proposed": {
+        "answerType": {
+          "value": "uint256",
+          "confidence": 0.46
+        },
+        "evidence": {
+          "value": "chain",
+          "confidence": 0.64
+        },
+        "chainId": {
+          "value": 1,
+          "confidence": 1
+        },
+        "toleranceBps": {
+          "value": 0,
+          "confidence": 0.94
+        },
+        "head": {
+          "value": 1,
+          "confidence": 0.82
+        }
+      }
+    },
+    {
+      "token": "USDC",
+      "bundle": 0,
+      "checks": [
+        "code.unverified",
+        "code.proxy",
+        "code.proxy_unverified_impl",
+        "code.selfdestruct",
+        "control.owner_active",
+        "control.admin_is_eoa"
+      ],
+      "wording": "inline",
+      "questionChars": 1341,
+      "endpoint": "quote",
+      "status": 201,
+      "problems": [],
+      "orderId": "7dc744b0-d4a7-4ad6-aa4d-76838c545d29",
+      "orderStatus": "quoted",
+      "amount": "500000000000000000",
+      "resultGuaranteed": false,
+      "inputHash": "805b7cab323190a82e77db48804ea9a4b035a9048a74071de0c0003240db2172"
+    },
+    {
+      "token": "USDC",
+      "bundle": 1,
+      "checks": [
+        "control.hidden_owner",
+        "control.mintable",
+        "control.change_balance",
+        "control.pausable",
+        "control.blacklist",
+        "control.reclaim_ownership"
+      ],
+      "wording": "definitions",
+      "questionChars": 264,
+      "endpoint": "check",
+      "status": 200,
+      "blockers": [
+        {
+          "code": "not_answerable",
+          "detail": "No one can answer this from public sources today: it may ask about the future, a matter of opinion, or something that is not public."
+        }
+      ],
+      "suggestions": [
+        {
+          "code": "wording",
+          "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+        },
+        {
+          "code": "evidence",
+          "detail": "This reads as answered from blockchain data; you chose public sources."
+        }
+      ],
+      "proposed": {
+        "answerType": {
+          "value": "uint256",
+          "confidence": 0.46
+        },
+        "evidence": {
+          "value": "chain",
+          "confidence": 0.94
+        },
+        "chainId": {
+          "value": 1,
+          "confidence": 0.99
+        },
+        "toleranceBps": {
+          "value": 0,
+          "confidence": 0.88
+        },
+        "head": {
+          "value": 1,
+          "confidence": 1
+        }
+      }
+    },
+    {
+      "token": "USDC",
+      "bundle": 1,
+      "checks": [
+        "control.hidden_owner",
+        "control.mintable",
+        "control.change_balance",
+        "control.pausable",
+        "control.blacklist",
+        "control.reclaim_ownership"
+      ],
+      "wording": "definitions",
+      "questionChars": 264,
+      "endpoint": "quote",
+      "status": 201,
+      "problems": [],
+      "orderId": "346e820f-9875-452d-8fb8-a32366f2923a",
+      "orderStatus": "quoted",
+      "amount": "500000000000000000",
+      "resultGuaranteed": false,
+      "inputHash": "79c3331599a91472da9b038997bdd2fd93ef2af124ea9eac2095aee542a6bc32"
+    },
+    {
+      "token": "USDC",
+      "bundle": 1,
+      "checks": [
+        "control.hidden_owner",
+        "control.mintable",
+        "control.change_balance",
+        "control.pausable",
+        "control.blacklist",
+        "control.reclaim_ownership"
+      ],
+      "wording": "inline",
+      "questionChars": 1187,
+      "endpoint": "check",
+      "status": 200,
+      "blockers": [],
+      "suggestions": [
+        {
+          "code": "evidence",
+          "detail": "This reads as answered from blockchain data; you chose public sources."
+        }
+      ],
+      "proposed": {
+        "answerType": {
+          "value": "uint256",
+          "confidence": 0.45
+        },
+        "evidence": {
+          "value": "chain",
+          "confidence": 0.9
+        },
+        "chainId": {
+          "value": 1,
+          "confidence": 1
+        },
+        "toleranceBps": {
+          "value": 0,
+          "confidence": 0.86
+        },
+        "head": {
+          "value": 1,
+          "confidence": 0.89
+        }
+      }
+    },
+    {
+      "token": "USDC",
+      "bundle": 1,
+      "checks": [
+        "control.hidden_owner",
+        "control.mintable",
+        "control.change_balance",
+        "control.pausable",
+        "control.blacklist",
+        "control.reclaim_ownership"
+      ],
+      "wording": "inline",
+      "questionChars": 1187,
+      "endpoint": "quote",
+      "status": 201,
+      "problems": [],
+      "orderId": "86d4053a-d920-4fa4-82cd-8fd9730e63be",
+      "orderStatus": "quoted",
+      "amount": "500000000000000000",
+      "resultGuaranteed": false,
+      "inputHash": "035f0c8b11efc9f1821c4cc838c53899ac5c141c7468c1abe83dfe654bb1ec0b"
+    },
+    {
+      "token": "USDC",
+      "bundle": 2,
+      "checks": [
+        "trading.sell_reverts",
+        "trading.buy_tax_gt",
+        "trading.sell_tax_gt",
+        "trading.transfer_tax_gt",
+        "trading.tax_modifiable",
+        "trading.per_address_tax"
+      ],
+      "wording": "definitions",
+      "questionChars": 264,
+      "endpoint": "check",
+      "status": 200,
+      "blockers": [
+        {
+          "code": "not_answerable",
+          "detail": "No one can answer this from public sources today: it may ask about the future, a matter of opinion, or something that is not public."
+        }
+      ],
+      "suggestions": [
+        {
+          "code": "wording",
+          "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+        },
+        {
+          "code": "evidence",
+          "detail": "This reads as answered from blockchain data; you chose public sources."
+        }
+      ],
+      "proposed": {
+        "answerType": {
+          "value": "uint256",
+          "confidence": 0.51
+        },
+        "evidence": {
+          "value": "chain",
+          "confidence": 0.92
+        },
+        "chainId": {
+          "value": 1,
+          "confidence": 1
+        },
+        "toleranceBps": {
+          "value": 0,
+          "confidence": 0.89
+        },
+        "head": {
+          "value": 1,
+          "confidence": 1
+        }
+      }
+    },
+    {
+      "token": "USDC",
+      "bundle": 2,
+      "checks": [
+        "trading.sell_reverts",
+        "trading.buy_tax_gt",
+        "trading.sell_tax_gt",
+        "trading.transfer_tax_gt",
+        "trading.tax_modifiable",
+        "trading.per_address_tax"
+      ],
+      "wording": "definitions",
+      "questionChars": 264,
+      "endpoint": "quote",
+      "status": 201,
+      "problems": [],
+      "orderId": "5e4e34ab-d633-44cc-9915-9b2466c2c60a",
+      "orderStatus": "quoted",
+      "amount": "500000000000000000",
+      "resultGuaranteed": false,
+      "inputHash": "095be55eacb2cfce897786a617edaad73be3a1e30b72f35b5f94d1d25f7a8ff5"
+    },
+    {
+      "token": "USDC",
+      "bundle": 2,
+      "checks": [
+        "trading.sell_reverts",
+        "trading.buy_tax_gt",
+        "trading.sell_tax_gt",
+        "trading.transfer_tax_gt",
+        "trading.tax_modifiable",
+        "trading.per_address_tax"
+      ],
+      "wording": "inline",
+      "questionChars": 1683,
+      "endpoint": "check",
+      "status": 200,
+      "blockers": [],
+      "suggestions": [
+        {
+          "code": "wording",
+          "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+        },
+        {
+          "code": "not_answerable",
+          "detail": "No one can answer this from public sources today: it may ask about the future, a matter of opinion, or something that is not public."
+        },
+        {
+          "code": "evidence",
+          "detail": "This reads as answered from blockchain data; you chose public sources."
+        }
+      ],
+      "proposed": {
+        "answerType": {
+          "value": "uint256",
+          "confidence": 0.46
+        },
+        "evidence": {
+          "value": "chain",
+          "confidence": 0.86
+        },
+        "chainId": {
+          "value": 1,
+          "confidence": 1
+        },
+        "toleranceBps": {
+          "value": 0,
+          "confidence": 0.91
+        },
+        "head": {
+          "value": 1,
+          "confidence": 0.78
+        }
+      }
+    },
+    {
+      "token": "USDC",
+      "bundle": 2,
+      "checks": [
+        "trading.sell_reverts",
+        "trading.buy_tax_gt",
+        "trading.sell_tax_gt",
+        "trading.transfer_tax_gt",
+        "trading.tax_modifiable",
+        "trading.per_address_tax"
+      ],
+      "wording": "inline",
+      "questionChars": 1683,
+      "endpoint": "quote",
+      "status": 201,
+      "problems": [],
+      "orderId": "90d719ef-cdc2-4984-93fb-51dee54da2b6",
+      "orderStatus": "quoted",
+      "amount": "500000000000000000",
+      "resultGuaranteed": false,
+      "inputHash": "645e0f2701288da6fbcb38477ea8c0c8cd522bff240e6014928239c485d12631"
+    },
+    {
+      "token": "USDC",
+      "bundle": 3,
+      "checks": [
+        "trading.limits",
+        "trading.cooldown",
+        "supply.noncirc_gt",
+        "supply.top10_gt",
+        "supply.owner_gt",
+        "liquidity.no_pool"
+      ],
+      "wording": "definitions",
+      "questionChars": 264,
+      "endpoint": "check",
+      "status": 200,
+      "blockers": [
+        {
+          "code": "not_answerable",
+          "detail": "No one can answer this from public sources today: it may ask about the future, a matter of opinion, or something that is not public."
+        }
+      ],
+      "suggestions": [
+        {
+          "code": "wording",
+          "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+        },
+        {
+          "code": "evidence",
+          "detail": "This reads as answered from blockchain data; you chose public sources."
+        }
+      ],
+      "proposed": {
+        "answerType": {
+          "value": "uint256",
+          "confidence": 0.39
+        },
+        "evidence": {
+          "value": "chain",
+          "confidence": 0.9
+        },
+        "chainId": {
+          "value": 1,
+          "confidence": 0.99
+        },
+        "toleranceBps": {
+          "value": 0,
+          "confidence": 0.88
+        },
+        "head": {
+          "value": 1,
+          "confidence": 0.99
+        }
+      }
+    },
+    {
+      "token": "USDC",
+      "bundle": 3,
+      "checks": [
+        "trading.limits",
+        "trading.cooldown",
+        "supply.noncirc_gt",
+        "supply.top10_gt",
+        "supply.owner_gt",
+        "liquidity.no_pool"
+      ],
+      "wording": "definitions",
+      "questionChars": 264,
+      "endpoint": "quote",
+      "status": 201,
+      "problems": [],
+      "orderId": "6aed3c8e-5fdc-4edd-a87f-8cc89eba6e2f",
+      "orderStatus": "quoted",
+      "amount": "500000000000000000",
+      "resultGuaranteed": false,
+      "inputHash": "763e4e408d6e8df64edcfeb72e5ac61d02e6934f0aaf51b215cc88b71fc5b55b"
+    },
+    {
+      "token": "USDC",
+      "bundle": 3,
+      "checks": [
+        "trading.limits",
+        "trading.cooldown",
+        "supply.noncirc_gt",
+        "supply.top10_gt",
+        "supply.owner_gt",
+        "liquidity.no_pool"
+      ],
+      "wording": "inline",
+      "questionChars": 1341,
+      "endpoint": "check",
+      "status": 200,
+      "blockers": [],
+      "suggestions": [
+        {
+          "code": "wording",
+          "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+        },
+        {
+          "code": "evidence",
+          "detail": "This reads as answered from blockchain data; you chose public sources."
+        }
+      ],
+      "proposed": {
+        "answerType": {
+          "value": "uint256",
+          "confidence": 0.48
+        },
+        "evidence": {
+          "value": "chain",
+          "confidence": 0.98
+        },
+        "chainId": {
+          "value": 1,
+          "confidence": 1
+        },
+        "toleranceBps": {
+          "value": 0,
+          "confidence": 0.64
+        },
+        "head": {
+          "value": 1,
+          "confidence": 0.85
+        }
+      }
+    },
+    {
+      "token": "USDC",
+      "bundle": 3,
+      "checks": [
+        "trading.limits",
+        "trading.cooldown",
+        "supply.noncirc_gt",
+        "supply.top10_gt",
+        "supply.owner_gt",
+        "liquidity.no_pool"
+      ],
+      "wording": "inline",
+      "questionChars": 1341,
+      "endpoint": "quote",
+      "status": 201,
+      "problems": [],
+      "orderId": "f43e8d10-8600-4930-adb2-12dd3868a2eb",
+      "orderStatus": "quoted",
+      "amount": "500000000000000000",
+      "resultGuaranteed": false,
+      "inputHash": "914e62aaaaac4822b972b0ce2a24b414302b2d520fa964d716def082418bea8d"
+    },
+    {
+      "token": "USDC",
+      "bundle": 4,
+      "checks": [
+        "liquidity.lp_locked_lt",
+        "liquidity.unlock_soon",
+        "liquidity.v4_hook_risky",
+        "identity.impersonation",
+        "identity.unlisted",
+        "identity.deployer_rug"
+      ],
+      "wording": "definitions",
+      "questionChars": 264,
+      "endpoint": "check",
+      "status": 200,
+      "blockers": [
+        {
+          "code": "not_answerable",
+          "detail": "No one can answer this from public sources today: it may ask about the future, a matter of opinion, or something that is not public."
+        }
+      ],
+      "suggestions": [
+        {
+          "code": "wording",
+          "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+        },
+        {
+          "code": "evidence",
+          "detail": "This reads as answered from blockchain data; you chose public sources."
+        }
+      ],
+      "proposed": {
+        "answerType": {
+          "value": "uint256",
+          "confidence": 0.47
+        },
+        "evidence": {
+          "value": "chain",
+          "confidence": 0.94
+        },
+        "chainId": {
+          "value": 1,
+          "confidence": 0.99
+        },
+        "toleranceBps": {
+          "value": 0,
+          "confidence": 0.86
+        },
+        "head": {
+          "value": 1,
+          "confidence": 1
+        }
+      }
+    },
+    {
+      "token": "USDC",
+      "bundle": 4,
+      "checks": [
+        "liquidity.lp_locked_lt",
+        "liquidity.unlock_soon",
+        "liquidity.v4_hook_risky",
+        "identity.impersonation",
+        "identity.unlisted",
+        "identity.deployer_rug"
+      ],
+      "wording": "definitions",
+      "questionChars": 264,
+      "endpoint": "quote",
+      "status": 201,
+      "problems": [],
+      "orderId": "b4bd63da-d9e1-4e81-b474-fa51bafb0c24",
+      "orderStatus": "quoted",
+      "amount": "500000000000000000",
+      "resultGuaranteed": false,
+      "inputHash": "fd0e4e880f2748eaef0e2d5f16c8888af422793a497503a6813854b8b6d3f65c"
+    },
+    {
+      "token": "USDC",
+      "bundle": 4,
+      "checks": [
+        "liquidity.lp_locked_lt",
+        "liquidity.unlock_soon",
+        "liquidity.v4_hook_risky",
+        "identity.impersonation",
+        "identity.unlisted",
+        "identity.deployer_rug"
+      ],
+      "wording": "inline",
+      "questionChars": 1676,
+      "endpoint": "check",
+      "status": 200,
+      "blockers": [],
+      "suggestions": [
+        {
+          "code": "wording",
+          "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+        },
+        {
+          "code": "not_answerable",
+          "detail": "No one can answer this from public sources today: it may ask about the future, a matter of opinion, or something that is not public."
+        },
+        {
+          "code": "evidence",
+          "detail": "This reads as answered from blockchain data; you chose public sources."
+        }
+      ],
+      "proposed": {
+        "answerType": {
+          "value": "uint256",
+          "confidence": 0.4
+        },
+        "evidence": {
+          "value": "chain",
+          "confidence": 0.94
+        },
+        "chainId": {
+          "value": 1,
+          "confidence": 1
+        },
+        "toleranceBps": {
+          "value": 0,
+          "confidence": 0.76
+        },
+        "head": {
+          "value": 1,
+          "confidence": 0.81
+        }
+      }
+    },
+    {
+      "token": "USDC",
+      "bundle": 4,
+      "checks": [
+        "liquidity.lp_locked_lt",
+        "liquidity.unlock_soon",
+        "liquidity.v4_hook_risky",
+        "identity.impersonation",
+        "identity.unlisted",
+        "identity.deployer_rug"
+      ],
+      "wording": "inline",
+      "questionChars": 1676,
+      "endpoint": "quote",
+      "status": 201,
+      "problems": [],
+      "orderId": "269db441-a8c2-4cdf-a610-692a6214e26e",
+      "orderStatus": "quoted",
+      "amount": "500000000000000000",
+      "resultGuaranteed": false,
+      "inputHash": "4901d5ee2103e4749376950c0d2fa2136eaabe5f09e63d43674153dda391cef3"
+    },
+    {
+      "token": "BIO",
+      "bundle": 0,
+      "checks": [
+        "code.unverified",
+        "code.proxy",
+        "code.proxy_unverified_impl",
+        "code.selfdestruct",
+        "control.owner_active",
+        "control.admin_is_eoa"
+      ],
+      "wording": "definitions",
+      "questionChars": 264,
+      "endpoint": "check",
+      "status": 200,
+      "blockers": [
+        {
+          "code": "not_answerable",
+          "detail": "No one can answer this from public sources today: it may ask about the future, a matter of opinion, or something that is not public."
+        }
+      ],
+      "suggestions": [
+        {
+          "code": "wording",
+          "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+        },
+        {
+          "code": "evidence",
+          "detail": "This reads as answered from blockchain data; you chose public sources."
+        }
+      ],
+      "proposed": {
+        "answerType": {
+          "value": "uint256",
+          "confidence": 0.52
+        },
+        "evidence": {
+          "value": "chain",
+          "confidence": 0.92
+        },
+        "chainId": {
+          "value": 1,
+          "confidence": 0.99
+        },
+        "toleranceBps": {
+          "value": 0,
+          "confidence": 0.86
+        },
+        "head": {
+          "value": 1,
+          "confidence": 1
+        }
+      }
+    },
+    {
+      "token": "BIO",
+      "bundle": 0,
+      "checks": [
+        "code.unverified",
+        "code.proxy",
+        "code.proxy_unverified_impl",
+        "code.selfdestruct",
+        "control.owner_active",
+        "control.admin_is_eoa"
+      ],
+      "wording": "definitions",
+      "questionChars": 264,
+      "endpoint": "quote",
+      "status": 201,
+      "problems": [],
+      "orderId": "62941420-cf11-4c43-abdb-cd5ebe59dfe2",
+      "orderStatus": "quoted",
+      "amount": "500000000000000000",
+      "resultGuaranteed": false,
+      "inputHash": "f18922434e8f5af526918cb4b69450aa6f14526b03e59a7f04e1aaccbe0a1349"
+    },
+    {
+      "token": "BIO",
+      "bundle": 0,
+      "checks": [
+        "code.unverified",
+        "code.proxy",
+        "code.proxy_unverified_impl",
+        "code.selfdestruct",
+        "control.owner_active",
+        "control.admin_is_eoa"
+      ],
+      "wording": "inline",
+      "questionChars": 1341,
+      "endpoint": "check",
+      "status": 200,
+      "blockers": [],
+      "suggestions": [],
+      "proposed": {
+        "answerType": {
+          "value": "uint256",
+          "confidence": 0.44
+        },
+        "evidence": {
+          "value": "chain",
+          "confidence": 0.68
+        },
+        "chainId": {
+          "value": 1,
+          "confidence": 1
+        },
+        "toleranceBps": {
+          "value": 0,
+          "confidence": 0.85
+        },
+        "head": {
+          "value": 1,
+          "confidence": 0.8
+        }
+      }
+    },
+    {
+      "token": "BIO",
+      "bundle": 0,
+      "checks": [
+        "code.unverified",
+        "code.proxy",
+        "code.proxy_unverified_impl",
+        "code.selfdestruct",
+        "control.owner_active",
+        "control.admin_is_eoa"
+      ],
+      "wording": "inline",
+      "questionChars": 1341,
+      "endpoint": "quote",
+      "status": 201,
+      "problems": [],
+      "orderId": "10b3bae0-0ec6-4c89-9235-5b34a7a1593b",
+      "orderStatus": "quoted",
+      "amount": "500000000000000000",
+      "resultGuaranteed": false,
+      "inputHash": "66a878ce46af3c0086b1db37c7d3a83f27c54fb61a3208d0eb5e32026de5b88e"
+    },
+    {
+      "token": "BIO",
+      "bundle": 1,
+      "checks": [
+        "control.hidden_owner",
+        "control.mintable",
+        "control.change_balance",
+        "control.pausable",
+        "control.blacklist",
+        "control.reclaim_ownership"
+      ],
+      "wording": "definitions",
+      "questionChars": 264,
+      "endpoint": "check",
+      "status": 200,
+      "blockers": [
+        {
+          "code": "not_answerable",
+          "detail": "No one can answer this from public sources today: it may ask about the future, a matter of opinion, or something that is not public."
+        }
+      ],
+      "suggestions": [
+        {
+          "code": "wording",
+          "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+        },
+        {
+          "code": "evidence",
+          "detail": "This reads as answered from blockchain data; you chose public sources."
+        }
+      ],
+      "proposed": {
+        "answerType": {
+          "value": "uint256",
+          "confidence": 0.48
+        },
+        "evidence": {
+          "value": "chain",
+          "confidence": 0.92
+        },
+        "chainId": {
+          "value": 1,
+          "confidence": 0.99
+        },
+        "toleranceBps": {
+          "value": 0,
+          "confidence": 0.86
+        },
+        "head": {
+          "value": 1,
+          "confidence": 1
+        }
+      }
+    },
+    {
+      "token": "BIO",
+      "bundle": 1,
+      "checks": [
+        "control.hidden_owner",
+        "control.mintable",
+        "control.change_balance",
+        "control.pausable",
+        "control.blacklist",
+        "control.reclaim_ownership"
+      ],
+      "wording": "definitions",
+      "questionChars": 264,
+      "endpoint": "quote",
+      "status": 201,
+      "problems": [],
+      "orderId": "750ffab2-6bc1-40a3-9d5d-40a002d92ecd",
+      "orderStatus": "quoted",
+      "amount": "500000000000000000",
+      "resultGuaranteed": false,
+      "inputHash": "9015112d9bc235d4c60495ebddc2e48bf8b222a323c3cb1e54d26e21bb1aa198"
+    },
+    {
+      "token": "BIO",
+      "bundle": 1,
+      "checks": [
+        "control.hidden_owner",
+        "control.mintable",
+        "control.change_balance",
+        "control.pausable",
+        "control.blacklist",
+        "control.reclaim_ownership"
+      ],
+      "wording": "inline",
+      "questionChars": 1187,
+      "endpoint": "check",
+      "status": 200,
+      "blockers": [],
+      "suggestions": [
+        {
+          "code": "evidence",
+          "detail": "This reads as answered from blockchain data; you chose public sources."
+        }
+      ],
+      "proposed": {
+        "answerType": {
+          "value": "uint256",
+          "confidence": 0.53
+        },
+        "evidence": {
+          "value": "chain",
+          "confidence": 0.98
+        },
+        "chainId": {
+          "value": 1,
+          "confidence": 1
+        },
+        "toleranceBps": {
+          "value": 0,
+          "confidence": 0.86
+        },
+        "head": {
+          "value": 1,
+          "confidence": 0.87
+        }
+      }
+    },
+    {
+      "token": "BIO",
+      "bundle": 1,
+      "checks": [
+        "control.hidden_owner",
+        "control.mintable",
+        "control.change_balance",
+        "control.pausable",
+        "control.blacklist",
+        "control.reclaim_ownership"
+      ],
+      "wording": "inline",
+      "questionChars": 1187,
+      "endpoint": "quote",
+      "status": 201,
+      "problems": [],
+      "orderId": "a99a1991-5a71-4174-a6a0-248865ef2176",
+      "orderStatus": "quoted",
+      "amount": "500000000000000000",
+      "resultGuaranteed": false,
+      "inputHash": "a1d83109baea71f6d9fcc3ac9f9093fd8aaa9e566e5444e6ce14865f8bf7fdf4"
+    },
+    {
+      "token": "BIO",
+      "bundle": 2,
+      "checks": [
+        "trading.sell_reverts",
+        "trading.buy_tax_gt",
+        "trading.sell_tax_gt",
+        "trading.transfer_tax_gt",
+        "trading.tax_modifiable",
+        "trading.per_address_tax"
+      ],
+      "wording": "definitions",
+      "questionChars": 264,
+      "endpoint": "check",
+      "status": 200,
+      "blockers": [
+        {
+          "code": "not_answerable",
+          "detail": "No one can answer this from public sources today: it may ask about the future, a matter of opinion, or something that is not public."
+        }
+      ],
+      "suggestions": [
+        {
+          "code": "wording",
+          "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+        },
+        {
+          "code": "evidence",
+          "detail": "This reads as answered from blockchain data; you chose public sources."
+        }
+      ],
+      "proposed": {
+        "answerType": {
+          "value": "uint256",
+          "confidence": 0.44
+        },
+        "evidence": {
+          "value": "chain",
+          "confidence": 0.9
+        },
+        "chainId": {
+          "value": 1,
+          "confidence": 0.99
+        },
+        "toleranceBps": {
+          "value": 0,
+          "confidence": 0.85
+        },
+        "head": {
+          "value": 1,
+          "confidence": 1
+        }
+      }
+    },
+    {
+      "token": "BIO",
+      "bundle": 2,
+      "checks": [
+        "trading.sell_reverts",
+        "trading.buy_tax_gt",
+        "trading.sell_tax_gt",
+        "trading.transfer_tax_gt",
+        "trading.tax_modifiable",
+        "trading.per_address_tax"
+      ],
+      "wording": "definitions",
+      "questionChars": 264,
+      "endpoint": "quote",
+      "status": 201,
+      "problems": [],
+      "orderId": "2cd3ec57-9648-4630-83f8-3c5d51171b9e",
+      "orderStatus": "quoted",
+      "amount": "500000000000000000",
+      "resultGuaranteed": false,
+      "inputHash": "e72c5c87a66a700402e45bf5f394223978b2a1b3b44365fac47ebf6f1d078e5f"
+    },
+    {
+      "token": "BIO",
+      "bundle": 2,
+      "checks": [
+        "trading.sell_reverts",
+        "trading.buy_tax_gt",
+        "trading.sell_tax_gt",
+        "trading.transfer_tax_gt",
+        "trading.tax_modifiable",
+        "trading.per_address_tax"
+      ],
+      "wording": "inline",
+      "questionChars": 1683,
+      "endpoint": "check",
+      "status": 200,
+      "blockers": [],
+      "suggestions": [
+        {
+          "code": "wording",
+          "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+        },
+        {
+          "code": "not_answerable",
+          "detail": "No one can answer this from public sources today: it may ask about the future, a matter of opinion, or something that is not public."
+        },
+        {
+          "code": "evidence",
+          "detail": "This reads as answered from blockchain data; you chose public sources."
+        }
+      ],
+      "proposed": {
+        "answerType": {
+          "value": "uint256",
+          "confidence": 0.42
+        },
+        "evidence": {
+          "value": "chain",
+          "confidence": 0.9
+        },
+        "chainId": {
+          "value": 1,
+          "confidence": 1
+        },
+        "toleranceBps": {
+          "value": 0,
+          "confidence": 0.92
+        },
+        "head": {
+          "value": 1,
+          "confidence": 0.77
+        }
+      }
+    },
+    {
+      "token": "BIO",
+      "bundle": 2,
+      "checks": [
+        "trading.sell_reverts",
+        "trading.buy_tax_gt",
+        "trading.sell_tax_gt",
+        "trading.transfer_tax_gt",
+        "trading.tax_modifiable",
+        "trading.per_address_tax"
+      ],
+      "wording": "inline",
+      "questionChars": 1683,
+      "endpoint": "quote",
+      "status": 201,
+      "problems": [],
+      "orderId": "5baff287-f15e-401e-9e0b-5038544c30a5",
+      "orderStatus": "quoted",
+      "amount": "500000000000000000",
+      "resultGuaranteed": false,
+      "inputHash": "4afd1644763d304c3e8f8456c1f1275e0589639e0eab8f97357eb85f9c652a4c"
+    },
+    {
+      "token": "BIO",
+      "bundle": 3,
+      "checks": [
+        "trading.limits",
+        "trading.cooldown",
+        "supply.noncirc_gt",
+        "supply.top10_gt",
+        "supply.owner_gt",
+        "liquidity.no_pool"
+      ],
+      "wording": "definitions",
+      "questionChars": 264,
+      "endpoint": "check",
+      "status": 200,
+      "blockers": [
+        {
+          "code": "not_answerable",
+          "detail": "No one can answer this from public sources today: it may ask about the future, a matter of opinion, or something that is not public."
+        }
+      ],
+      "suggestions": [
+        {
+          "code": "wording",
+          "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+        },
+        {
+          "code": "evidence",
+          "detail": "This reads as answered from blockchain data; you chose public sources."
+        }
+      ],
+      "proposed": {
+        "answerType": {
+          "value": "uint256",
+          "confidence": 0.47
+        },
+        "evidence": {
+          "value": "chain",
+          "confidence": 0.92
+        },
+        "chainId": {
+          "value": 1,
+          "confidence": 0.99
+        },
+        "toleranceBps": {
+          "value": 0,
+          "confidence": 0.88
+        },
+        "head": {
+          "value": 1,
+          "confidence": 1
+        }
+      }
+    },
+    {
+      "token": "BIO",
+      "bundle": 3,
+      "checks": [
+        "trading.limits",
+        "trading.cooldown",
+        "supply.noncirc_gt",
+        "supply.top10_gt",
+        "supply.owner_gt",
+        "liquidity.no_pool"
+      ],
+      "wording": "definitions",
+      "questionChars": 264,
+      "endpoint": "quote",
+      "status": 201,
+      "problems": [],
+      "orderId": "de8b9d28-c6fa-4f5e-b24c-183bdca27e25",
+      "orderStatus": "quoted",
+      "amount": "500000000000000000",
+      "resultGuaranteed": false,
+      "inputHash": "c3de6ca6df38e6c4727a6c5b4e11aae49f8a6f92d56dfbf94ba709bf0189f6e3"
+    },
+    {
+      "token": "BIO",
+      "bundle": 3,
+      "checks": [
+        "trading.limits",
+        "trading.cooldown",
+        "supply.noncirc_gt",
+        "supply.top10_gt",
+        "supply.owner_gt",
+        "liquidity.no_pool"
+      ],
+      "wording": "inline",
+      "questionChars": 1341,
+      "endpoint": "check",
+      "status": 200,
+      "blockers": [],
+      "suggestions": [
+        {
+          "code": "wording",
+          "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+        },
+        {
+          "code": "evidence",
+          "detail": "This reads as answered from blockchain data; you chose public sources."
+        }
+      ],
+      "proposed": {
+        "answerType": {
+          "value": "uint256",
+          "confidence": 0.41
+        },
+        "evidence": {
+          "value": "chain",
+          "confidence": 0.98
+        },
+        "chainId": {
+          "value": 1,
+          "confidence": 1
+        },
+        "toleranceBps": {
+          "value": 0,
+          "confidence": 0.76
+        },
+        "head": {
+          "value": 1,
+          "confidence": 0.87
+        }
+      }
+    },
+    {
+      "token": "BIO",
+      "bundle": 3,
+      "checks": [
+        "trading.limits",
+        "trading.cooldown",
+        "supply.noncirc_gt",
+        "supply.top10_gt",
+        "supply.owner_gt",
+        "liquidity.no_pool"
+      ],
+      "wording": "inline",
+      "questionChars": 1341,
+      "endpoint": "quote",
+      "status": 201,
+      "problems": [],
+      "orderId": "0965b353-02fe-4761-887a-6a47f5f7f431",
+      "orderStatus": "quoted",
+      "amount": "500000000000000000",
+      "resultGuaranteed": false,
+      "inputHash": "c75b8caf32959d900020e6ceb29044f92d0a843378b84ca43f800f88e475663f"
+    },
+    {
+      "token": "BIO",
+      "bundle": 4,
+      "checks": [
+        "liquidity.lp_locked_lt",
+        "liquidity.unlock_soon",
+        "liquidity.v4_hook_risky",
+        "identity.impersonation",
+        "identity.unlisted",
+        "identity.deployer_rug"
+      ],
+      "wording": "definitions",
+      "questionChars": 264,
+      "endpoint": "check",
+      "status": 200,
+      "blockers": [
+        {
+          "code": "not_answerable",
+          "detail": "No one can answer this from public sources today: it may ask about the future, a matter of opinion, or something that is not public."
+        }
+      ],
+      "suggestions": [
+        {
+          "code": "wording",
+          "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+        },
+        {
+          "code": "evidence",
+          "detail": "This reads as answered from blockchain data; you chose public sources."
+        }
+      ],
+      "proposed": {
+        "answerType": {
+          "value": "uint256",
+          "confidence": 0.4
+        },
+        "evidence": {
+          "value": "chain",
+          "confidence": 0.92
+        },
+        "chainId": {
+          "value": 1,
+          "confidence": 0.99
+        },
+        "toleranceBps": {
+          "value": 0,
+          "confidence": 0.86
+        },
+        "head": {
+          "value": 1,
+          "confidence": 1
+        }
+      }
+    },
+    {
+      "token": "BIO",
+      "bundle": 4,
+      "checks": [
+        "liquidity.lp_locked_lt",
+        "liquidity.unlock_soon",
+        "liquidity.v4_hook_risky",
+        "identity.impersonation",
+        "identity.unlisted",
+        "identity.deployer_rug"
+      ],
+      "wording": "definitions",
+      "questionChars": 264,
+      "endpoint": "quote",
+      "status": 201,
+      "problems": [],
+      "orderId": "dba2b312-a372-491a-af7f-521b9c913444",
+      "orderStatus": "quoted",
+      "amount": "500000000000000000",
+      "resultGuaranteed": false,
+      "inputHash": "67f98a4c24b9f15be0cac8fc4abc34ba4c395bdf9e49a667822fa4baba30c012"
+    },
+    {
+      "token": "BIO",
+      "bundle": 4,
+      "checks": [
+        "liquidity.lp_locked_lt",
+        "liquidity.unlock_soon",
+        "liquidity.v4_hook_risky",
+        "identity.impersonation",
+        "identity.unlisted",
+        "identity.deployer_rug"
+      ],
+      "wording": "inline",
+      "questionChars": 1676,
+      "endpoint": "check",
+      "status": 200,
+      "blockers": [],
+      "suggestions": [
+        {
+          "code": "wording",
+          "detail": "It may be read more than one way. Naming the period, the unit or the term you mean makes a split less likely."
+        },
+        {
+          "code": "not_answerable",
+          "detail": "No one can answer this from public sources today: it may ask about the future, a matter of opinion, or something that is not public."
+        },
+        {
+          "code": "evidence",
+          "detail": "This reads as answered from blockchain data; you chose public sources."
+        }
+      ],
+      "proposed": {
+        "answerType": {
+          "value": "uint256",
+          "confidence": 0.45
+        },
+        "evidence": {
+          "value": "chain",
+          "confidence": 0.98
+        },
+        "chainId": {
+          "value": 1,
+          "confidence": 1
+        },
+        "toleranceBps": {
+          "value": 0,
+          "confidence": 0.77
+        },
+        "head": {
+          "value": 1,
+          "confidence": 0.84
+        }
+      }
+    },
+    {
+      "token": "BIO",
+      "bundle": 4,
+      "checks": [
+        "liquidity.lp_locked_lt",
+        "liquidity.unlock_soon",
+        "liquidity.v4_hook_risky",
+        "identity.impersonation",
+        "identity.unlisted",
+        "identity.deployer_rug"
+      ],
+      "wording": "inline",
+      "questionChars": 1676,
+      "endpoint": "quote",
+      "status": 201,
+      "problems": [],
+      "orderId": "48baad3b-cabb-4f51-9c33-39ea625b8754",
+      "orderStatus": "quoted",
+      "amount": "500000000000000000",
+      "resultGuaranteed": false,
+      "inputHash": "a470b3b5626d484875f485172e2f208e77e9e1936fdf4a3595ca4a3a78899cfd"
+    }
+  ]
+}

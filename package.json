@@ -1,0 +1,35 @@
+{
+  "name": "tvf-core",
+  "version": "1.0.0",
+  "description": "Token Verification Framework: the tvf-1 schema, the core question set, canonical hashing and the bundle compiler.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@10.33.3",
+  "bin": {
+    "tvf": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "schema",
+    "frameworks"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p test/tsconfig.json",
+    "test": "vitest run",
+    "validate": "node dist/cli.js validate frameworks/core/*.json proposals/*/proposal.json",
+    "m0:quotes": "node dist/m0-quotes.js"
+  },
+  "dependencies": {
+    "@noble/hashes": "^1.8.0",
+    "ajv": "^8.17.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  }
+}
